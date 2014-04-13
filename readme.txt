@@ -4,7 +4,7 @@ Donate link: http://moveplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.0.0.2
+Stable tag: 1.0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ See full instructions at http://moveplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.1 = April 13, 2014
+* Added Field Class Names to help style options better for metaboxes
 
 = 1.0.0.0 = March 6, 2014
 * Original release
