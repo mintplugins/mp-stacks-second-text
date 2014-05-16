@@ -72,6 +72,7 @@ function mp_stacks_second_text_create_meta_box(){
 			'field_description' => 'Enter the text to display on text area 1',
 			'field_type' => 'wp_editor',
 			'field_value' => '',
+			'field_container_class' => 'mp_field_brick_text_line_1'
 		),
 		array(
 			'field_id'	 => 'brick_second_line_2_color',
@@ -94,7 +95,8 @@ function mp_stacks_second_text_create_meta_box(){
 			'field_title' => __( 'Text Area 2', 'mp_stacks'),
 			'field_description' => 'Enter the text to display on text area 2',
 			'field_type' => 'wp_editor',
-			'field_value' => ''
+			'field_value' => '',
+			'field_container_class' => 'mp_field_brick_text_line_1'
 		),
 		array(
 			'field_id'	 => 'brick_second_content_type_help',
