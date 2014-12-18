@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + Second Text
 Plugin URI: http://mintplugins.com
 Description: Display a second text in a brick
-Version: 1.0.0.3
+Version: 1.0.0.4
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: MP_STACKS_SECOND_TEXT
@@ -34,7 +34,7 @@ License: GPL2
 */
 // Plugin version
 if( !defined( 'MP_STACKS_SECOND_TEXT_VERSION' ) )
-	define( 'MP_STACKS_SECOND_TEXT_VERSION', '1.0.0.3' );
+	define( 'MP_STACKS_SECOND_TEXT_VERSION', '1.0.0.4' );
 
 // Plugin Folder URL
 if( !defined( 'MP_STACKS_SECOND_TEXT_PLUGIN_URL' ) )
@@ -144,10 +144,14 @@ function MP_STACKS_SECOND_TEXT_include_files(){
 		require( MP_STACKS_SECOND_TEXT_PLUGIN_DIR . 'includes/metaboxes/mp-stacks-second-text-meta/mp-stacks-second-text-meta.php' );
 		
 		/**
-		 * Functions which assist with the creation of templates using this add-on
+		 * Add this add on to the list of Active MP Stacks Add Ons
 		 */
 		if ( function_exists('mp_stacks_developer_textdomain') ){
-			require( MP_STACKS_SECOND_TEXT_PLUGIN_DIR . 'includes/misc-functions/stack-template-functions.php' );
+			function mp_stacks_second_text_add_active( $required_add_ons ){
+				$required_add_ons['mp_stacks_second_text'] = 'MP Stacks + Second Text';
+				return $required_add_ons;
+			}
+			add_filter( 'mp_stacks_active_add_ons', 'mp_stacks_second_text_add_active' );
 		}
 		
 		/**

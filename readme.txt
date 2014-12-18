@@ -3,8 +3,8 @@ Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
-Tested up to: 3.9
-Stable tag: 1.0.0.3
+Tested up to: 4.1
+Stable tag: 1.0.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.4 = May 16, 2014
+* This is a major update which allows second text areas to be repeatable.
 
 = 1.0.0.3 = May 16, 2014
 * Added Field Class Names to further style metaboxes

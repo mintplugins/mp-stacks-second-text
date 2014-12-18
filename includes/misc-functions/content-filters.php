@@ -13,30 +13,44 @@
  */
  
 /**
- * Filter Content Output for Second Text
+ * Filter Content Output for singletext, the "new" way.
  */
-function mp_stacks_brick_content_output_second_text($default_content_output, $mp_stacks_content_type, $post_id){
+function mp_stacks_brick_content_output_secondtext($default_content_output, $mp_stacks_content_type, $post_id){
 	
 	//If this stack content type is set to be text	
 	if ($mp_stacks_content_type == 'second_text'){
 		
 		//Set default value for $content_output to NULL
 		$content_output = NULL;	
- 
-		//First line of text
-		$brick_text_line_1 = do_shortcode( html_entity_decode( get_post_meta($post_id, 'brick_second_text_line_1', true) ) );
+ 		
+		//Get text repeater
+		$text_areas = get_post_meta($post_id, 'mp_stacks_second_singletext_content_type_repeater', true);
 		
-		//Second line of text
-		$brick_text_line_2 = do_shortcode( html_entity_decode( get_post_meta($post_id, 'brick_second_text_line_2', true) ) );
-				
-		//Action hook to add changes to the text
-		has_action('mp_stacks_second_text_action') ? do_action( 'mp_stacks_second_text_action', $post_id) : NULL;
+		//If nothing is saved in the repeater
+		if ( empty( $text_areas ) ){
+			return;	
+		}
+	
+		//Counter
+		$counter = 1;
 		
-		//First Output
-		$content_output .= !empty($brick_text_line_1) || !empty($brick_text_line_2) ? '<div class="text">' : NULL;
-		$content_output .= !empty($brick_text_line_1) ? '<div class="mp-brick-second-text mp-brick-text-line-1">' . $brick_text_line_1 . '</div>' : '';
-		$content_output .= !empty($brick_text_line_2) ? '<div class="mp-brick-second-text mp-brick-text-line-2">' . $brick_text_line_2 . '</div>': NULL;
-		$content_output .= !empty($brick_text_line_1) || !empty($brick_text_line_2) ? '</div>' : NULL;
+		foreach( $text_areas as $text_area ){
+			
+			//The actual text
+			$brick_text = do_shortcode( html_entity_decode( $text_area['brick_second_text'] ) );
+			
+			//Desired Font Size
+			$brick_text_font_size = $text_area['brick_second_text_font_size'];
+								
+			//First Output
+			$content_output .= !empty($brick_text) ? '<div class="mp-stacks-text-area mp-stacks-text-area-' . $counter . '">' : NULL;
+			$content_output .= !empty($brick_text) ? '<div class="mp-brick-text">' . $brick_text . '</div>' : '';
+			$content_output .= !empty($brick_text) ? '</div>' : NULL;
+			
+			//Increment Counter
+			$counter = $counter + 1;
+			
+		}
 		
 		//Return
 		return $content_output;
@@ -46,59 +60,71 @@ function mp_stacks_brick_content_output_second_text($default_content_output, $mp
 		return $default_content_output;
 	}
 }
-add_filter('mp_stacks_brick_content_output', 'mp_stacks_brick_content_output_second_text', 10, 3);
+add_filter('mp_stacks_brick_content_output', 'mp_stacks_brick_content_output_secondtext', 10, 3);
 
 /**
- * Filter CSS Output for Second Line 1
+ * Filter CSS Output text areas. This deals with the second "singletext", "new" style for text.
  */
-function mp_stacks_second_text_line_1_style($css_output, $post_id){
+function mp_stacks_second_singletext_styles($css_output, $post_id){
 	
-	//Title Color
-	$brick_line_1_color = get_post_meta($post_id, 'brick_second_line_1_color', true);
+	//Get text repeater
+	$text_areas_vars = get_post_meta($post_id, 'mp_stacks_second_singletext_content_type_repeater', true);	
 	
-	//Title Font Size
-	$brick_line_1_font_size = get_post_meta($post_id, 'brick_second_line_1_font_size', true);
+	//If nothing is saved in the repeater
+	if ( empty( $text_areas_vars ) ){
+		return $css_output;	
+	}
 	
-	//Title Full Style
-	$brick_line_1_style = !empty($brick_line_1_color) ? 'color: ' . $brick_line_1_color . '; '  : NULL;
-	$brick_line_1_style .= !empty($brick_line_1_font_size) ? 'font-size:' . $brick_line_1_font_size . 'px; ' : NULL;
+	//Create variable for css output
+	$brick_text_areas_styles = NULL;
 	
-	//Full sized css
-	$brick_line_1_style = !empty($brick_line_1_style) ? '#mp-brick-' . $post_id . ' .mp-brick-second-text.mp-brick-text-line-1, #mp-brick-' . $post_id . ' .mp-brick-second-text.mp-brick-text-line-1 a {' . $brick_line_1_style .'}' : NULL;
+	//Counter
+	$counter = 1;
+	
+	foreach( $text_areas_vars as $text_area_vars ){
+		
+		/**
+		 * Filter CSS Output this text
+		 */
+		 
+		//Text Color
+		$brick_text_color = $text_area_vars['brick_second_text_color'];
+		
+		//Text Font Size
+		$brick_text_font_size = $text_area_vars['brick_second_text_font_size'];
+		
+		//Text Line Height
+		$brick_text_line_height = isset( $text_area_vars['brick_second_text_line_height'] ) ? $text_area_vars['brick_second_text_line_height'] : NULL;
+		
+		//Text Paragraph Spacing
+		$brick_text_paragraph_margin_bottom = isset( $text_area_vars['brick_second_text_paragraph_margin_bottom'] ) ? $text_area_vars['brick_second_text_paragraph_margin_bottom'] : NULL;
+		
+		//Text Full Style
+		$brick_text_style = !empty($brick_text_color) ? 'color: ' . $brick_text_color . '; '  : NULL;
+		$brick_text_style .= !empty($brick_text_font_size) ? 'font-size:' . $brick_text_font_size . 'px; ' : NULL;
+		$brick_text_style .= !empty($brick_text_line_height) ? 'line-height:' . $brick_text_line_height . 'px; ' : NULL;
+		
+		//Assemble css
+		if ( !empty($brick_text_style) ) {
+			$brick_text_areas_styles .= '#mp-brick-' . $post_id . ' .mp-stacks-text-area-' . $counter . ' .mp-brick-text *, ';
+			$brick_text_areas_styles .= '#mp-brick-' . $post_id . ' .mp-stacks-text-area-' . $counter . ' .mp-brick-text a {' . $brick_text_style .'}';
+		}
+		
+		//If there is a paragraph spacing variable
+		if ( is_numeric( $brick_text_paragraph_margin_bottom ) ){
+			$brick_text_areas_styles .= '#mp-brick-' . $post_id . ' .mp-stacks-text-area-' . $counter . ' .mp-brick-text p { margin-bottom:' . $brick_text_paragraph_margin_bottom .'px; }';
+		}
+				
+		//Increment counter
+		$counter = $counter + 1;
+		
+	}
 		
 	//Add new CSS to existing CSS passed-in
-	$css_output .= $brick_line_1_style;
+	$css_output .= $brick_text_areas_styles;
 	
 	//Return new CSS
 	return $css_output;
 
 }
-add_filter('mp_brick_additional_css', 'mp_stacks_second_text_line_1_style', 10, 2);
-
-
-/**
- * Filter CSS Output for Second Line 2
- */
-function mp_stacks_second_text_line_2_style($css_output, $post_id){
-	
-	//Text Color
-	$brick_line_2_color = get_post_meta($post_id, 'brick_second_line_2_color', true);
-	
-	//Text Font Size
-	$brick_line_2_font_size = get_post_meta($post_id, 'brick_second_line_2_font_size', true);
-	
-	//Text Style
-	$brick_line_2_style = !empty($brick_line_2_color) ? 'color: ' . $brick_line_2_color . '; '  : NULL;
-	$brick_line_2_style .= !empty($brick_line_2_font_size) ? 'font-size:' . $brick_line_2_font_size . 'px; ' : NULL;
-	
-	//Full sized css
-	$brick_line_2_style = !empty($brick_line_2_style) ? '#mp-brick-' . $post_id . ' .mp-brick-second-text.mp-brick-text-line-2, #mp-brick-' . $post_id . ' .mp-brick-second-text.mp-brick-text-line-2 a{' . $brick_line_2_style .'}' : NULL;
-			
-	//Add new CSS to existing CSS passed-in
-	$css_output .= $brick_line_2_style;
-	
-	//Return new CSS
-	return $css_output;
-		
-}
-add_filter('mp_brick_additional_css', 'mp_stacks_second_text_line_2_style', 10, 2);
+add_filter('mp_brick_additional_css', 'mp_stacks_second_singletext_styles', 10, 2);
