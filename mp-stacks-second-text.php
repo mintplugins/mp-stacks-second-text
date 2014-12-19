@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + Second Text
 Plugin URI: http://mintplugins.com
 Description: Display a second text in a brick
-Version: 1.0.0.4
+Version: 1.0.0.5
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: MP_STACKS_SECOND_TEXT
@@ -34,7 +34,7 @@ License: GPL2
 */
 // Plugin version
 if( !defined( 'MP_STACKS_SECOND_TEXT_VERSION' ) )
-	define( 'MP_STACKS_SECOND_TEXT_VERSION', '1.0.0.4' );
+	define( 'MP_STACKS_SECOND_TEXT_VERSION', '1.0.0.5' );
 
 // Plugin Folder URL
 if( !defined( 'MP_STACKS_SECOND_TEXT_PLUGIN_URL' ) )

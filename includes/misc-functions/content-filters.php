@@ -43,7 +43,7 @@ function mp_stacks_brick_content_output_secondtext($default_content_output, $mp_
 			$brick_text_font_size = $text_area['brick_second_text_font_size'];
 								
 			//First Output
-			$content_output .= !empty($brick_text) ? '<div class="mp-stacks-text-area mp-stacks-text-area-' . $counter . '">' : NULL;
+			$content_output .= !empty($brick_text) ? '<div class="mp-stacks-text-area mp-stacks-second-text-area mp-stacks-text-area-' . $counter . '">' : NULL;
 			$content_output .= !empty($brick_text) ? '<div class="mp-brick-text">' . $brick_text . '</div>' : '';
 			$content_output .= !empty($brick_text) ? '</div>' : NULL;
 			
@@ -106,13 +106,13 @@ function mp_stacks_second_singletext_styles($css_output, $post_id){
 		
 		//Assemble css
 		if ( !empty($brick_text_style) ) {
-			$brick_text_areas_styles .= '#mp-brick-' . $post_id . ' .mp-stacks-text-area-' . $counter . ' .mp-brick-text *, ';
-			$brick_text_areas_styles .= '#mp-brick-' . $post_id . ' .mp-stacks-text-area-' . $counter . ' .mp-brick-text a {' . $brick_text_style .'}';
+			$brick_text_areas_styles .= '#mp-brick-' . $post_id . ' .mp-stacks-second-text-area.mp-stacks-text-area-' . $counter . ' .mp-brick-text *, ';
+			$brick_text_areas_styles .= '#mp-brick-' . $post_id . '.mp-stacks-second-text-area.mp-stacks-text-area-' . $counter . ' .mp-brick-text a {' . $brick_text_style .'}';
 		}
 		
 		//If there is a paragraph spacing variable
 		if ( is_numeric( $brick_text_paragraph_margin_bottom ) ){
-			$brick_text_areas_styles .= '#mp-brick-' . $post_id . ' .mp-stacks-text-area-' . $counter . ' .mp-brick-text p { margin-bottom:' . $brick_text_paragraph_margin_bottom .'px; }';
+			$brick_text_areas_styles .= '#mp-brick-' . $post_id . ' .mp-stacks-second-text-area.mp-stacks-text-area-' . $counter . ' .mp-brick-text p { margin-bottom:' . $brick_text_paragraph_margin_bottom .'px; }';
 		}
 				
 		//Increment counter

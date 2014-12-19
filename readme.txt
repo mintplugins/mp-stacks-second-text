@@ -4,7 +4,7 @@ Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0.0.4
+Stable tag: 1.0.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,10 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 == Changelog ==
 
-= 1.0.0.4 = May 16, 2014
+= 1.0.0.5 = December 19, 2014
+* Made css for second text only get applied to second_text - initially was competing with single text from mp_stacks core.
+
+= 1.0.0.4 = December 18, 2014
 * This is a major update which allows second text areas to be repeatable.
 
 = 1.0.0.3 = May 16, 2014
