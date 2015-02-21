@@ -88,11 +88,11 @@ function mp_stacks_second_text_create_meta_box(){
 		),
 		'brick_second_text' => array(
 			'field_id'	 => 'brick_second_text',
-			'field_title' => __( 'Text Area 1', 'mp_stacks'),
+			'field_title' => __( 'Text Area', 'mp_stacks'),
 			'field_description' => 'Enter the text',
 			'field_type' => 'wp_editor',
 			'field_value' => '',
-			'field_repeater' => 'mp_stacks_second_singletext_content_type_repeater'
+			'field_repeater' => 'mp_stacks_second_singletext_content_type_repeater',
 		),
 	
 	);
