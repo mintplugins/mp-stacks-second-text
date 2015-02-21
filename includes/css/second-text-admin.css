@@ -1,0 +1,4 @@
+.mp_stacks_second_singletext_content_type_repeater_repeater div[class*="brick_second_textBBBBB"],
+.mp_stacks_second_singletext_content_type_repeater_repeater div[class*="brick_second_textBBBBB "]{
+	clear:both;	
+}
