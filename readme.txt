@@ -4,7 +4,7 @@ Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0.0.5
+Stable tag: 1.0.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,10 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.6 = February 20, 2015
+* Added admin css which makes sure the text area doesn’t cover the size/color controls.
+* Added enqueue scripts file
 
 = 1.0.0.5 = December 19, 2014
 * Made css for second text only get applied to second_text - initially was competing with single text from mp_stacks core.
