@@ -4,7 +4,7 @@ Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0.0.6
+Stable tag: 1.0.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,11 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.7 = September 20, 2015
+* Added Device Size Controls for Second Text
+* Admin Meta Scripts now enqueued only when needed.
+* Brick Metabox controls now load using ajax.
 
 = 1.0.0.6 = February 20, 2015
 * Added admin css which makes sure the text area doesn’t cover the size/color controls.
