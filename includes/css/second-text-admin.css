@@ -2,3 +2,19 @@
 .mp_stacks_second_singletext_content_type_repeater_repeater div[class*="brick_second_textBBBBB "]{
 	clear:both;	
 }
+
+.repeater_container div[class*="brick_second_text_color"] {
+    z-index: 9999;
+}
+
+.mp_stacks_second_singletext_content_type_repeater_repeater div[class*="bigscreen"],
+.mp_stacks_second_singletext_content_type_repeater_repeater div[class*="laptop"],
+.mp_stacks_second_singletext_content_type_repeater_repeater div[class*="tablet"],
+.mp_stacks_second_singletext_content_type_repeater_repeater div[class*="mobile"]{
+	display:none;
+}
+
+div[class*="brick_second_text_screen_size_controllerBBBBB"], div[class*="brick_second_text_screen_size_controllerBBBBB "] {
+    display: inline-block!important;
+    float: none!important;
+}
