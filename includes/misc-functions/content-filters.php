@@ -43,7 +43,7 @@ function mp_stacks_brick_content_output_secondtext($default_content_output, $mp_
 			$brick_second_text_font_size = $text_area['brick_second_text_font_size'];
 								
 			//First Output
-			$content_output .= !empty($brick_second_text) ? '<div class="mp-stacks-second-text-area mp-stacks-second-text-area mp-stacks-second-text-area-' . $counter . '">' : NULL;
+			$content_output .= !empty($brick_second_text) ? '<div class="mp-stacks-text-area mp-stacks-second-text-area mp-stacks-second-text-area mp-stacks-second-text-area-' . $counter . '">' : NULL;
 			$content_output .= !empty($brick_second_text) ? '<div class="mp-brick-text">' . $brick_second_text . '</div>' : '';
 			$content_output .= !empty($brick_second_text) ? '</div>' : NULL;
 			
