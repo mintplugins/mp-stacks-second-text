@@ -3,8 +3,8 @@ Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 1.0.0.7
+Tested up to: 4.4
+Stable tag: 1.0.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ See full instructions at http://mintplugins.com/doc/mp-stacks
 
 
 == Changelog ==
+
+= 1.0.0.8 = March 8, 2016
+* Add CSS Class "mp-stacks-text-area" to second text areas.
 
 = 1.0.0.7 = September 20, 2015
 * Added Device Size Controls for Second Text
